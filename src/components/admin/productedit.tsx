@@ -1,83 +1,124 @@
-import { useQueryClient, useMutation, useQuery } from '@tanstack/react-query'
-import axios from 'axios'
-import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { useNavigate, useParams } from 'react-router-dom'
-import { IProduct } from '../../interface/product'
-import { api } from '../../config/axios'
-import { UploadOutlined } from '@ant-design/icons'
-import { Upload, Button, UploadFile, UploadProps } from 'antd'
+import { useQueryClient, useMutation, useQuery } from '@tanstack/react-query';
+import { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Upload, Button, UploadFile, UploadProps } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+import { api } from '../../config/axios';
+const UPLOAD_URL = "https://api.cloudinary.com/v1_1/dkpfaleot/image/upload";
+
+interface IProduct {
+  id?: string;
+  name: string;
+  images: string;
+  price: number;
+  galleries?: string[];
+}
 
 const ProductEdit = () => {
-    const [gallery,setGallery] = useState<string[]>([])
-    const {register,handleSubmit,reset} = useForm<IProduct>()
-    const params = useParams()
-    const {data,isLoading} = useQuery<IProduct>({
-        queryKey: ["product",params.id],
-        queryFn: async()=>{
-            const {data:product} = await api.get(`products/${params.id}`)
-            // reset(product)
-            return product
-        }
-    })
-    const queryclient = useQueryClient()
-    const navigate = useNavigate()
-    const mutation = useMutation({
-        mutationFn: async(product:IProduct)=>{
-            try {
-                const {data} =await axios.put(`http://localhost:4000/products/${params.id}`,product)
-                return data
-            } catch (error) {
-                console.log(error);                
-            }
-        },
-        onSuccess:(response)=>{
-            alert("Cập nhật thành công")
-            console.log(response);            
-            queryclient.invalidateQueries({queryKey:["products"]})
-            navigate("/dashboard/product-list")
-        }        
-    })
-const onSubmit = (product:IProduct)=>{
-    product.gallerys = gallery
-    mutation.mutate(product)
-}
-const fileList: UploadFile[] =data?.gallerys.map((item,index)=>{
-    return {uid:index,name:item,status:'done',url:item,thumbUrl:item}
-})
-  const handleChange: UploadProps['onChange'] = ({ fileList: newFileList }) =>
-     {
-      console.log(newFileList);    
-      const newgallery = newFileList.map(item=>item.response?.url??item.url)
-      // setFileList(newFileList);
-      setGallery(newgallery)
-     } 
-    if (isLoading){
-        return <>Đang tải</>
-    }
-  return (
-    <div>
-        <h1>Sửa sản phẩm</h1>
-        <form onSubmit={handleSubmit(onSubmit)} className='max-w-xl mx-auto flex flex-col gap-2 [&_input]:border [&_input]:px-2 [&_input]:py-1 [&_input]:rounded'>
-            <input type='text' {...register("name",{value:data?.name})} placeholder='Tên sản phẩm'/>
-            <input type='text' {...register("images",{value:data?.images})} placeholder='Ảnh sản phẩm'/>
-            <input type='text' {...register("price",{value:data?.price})} placeholder='Giá sản phẩm'/>
-            <Upload
-                action="https://api.cloudinary.com/v1_1/dkpfaleot/image/upload"
-                listType="picture"
-                defaultFileList={fileList}
-                data = {{upload_preset:"reacttest"}}
-                onChange={handleChange}
-                multiple = {true}
-            >
-                <Button type="primary" icon={<UploadOutlined />}>
-                Upload
-                </Button>
-            </Upload>
-            <button>Sửa</button>
-        </form>
-    </div>
-  )
-}
+  const [gallery, setGallery] = useState<string[]>([]);
+  const { register, handleSubmit, reset } = useForm<IProduct>();
+  const { id } = useParams<{ id: string }>();
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
-export default ProductEdit
+  const { data, isLoading } = useQuery<IProduct>({
+    queryKey: ['product', id],
+    queryFn: async () => {
+      const { data } = await api.get(`products/${id}`);
+      return data;
+    },
+    enabled: !!id,
+  });
+
+  useEffect(() => {
+    if (data) {
+      reset(data);
+      setGallery(data.galleries || []);
+    }
+  }, [data, reset]);
+
+  const mutation = useMutation({
+    mutationFn: async (product: IProduct) => {
+      const { data } = await api.put(`products/${id}`, product);
+      return data;
+    },
+    onSuccess: () => {
+      alert('Cập nhật thành công');
+      queryClient.invalidateQueries({ queryKey: ['products'] });
+      navigate('/dashboard/product-list');
+    },
+    onError: (error: Error) => {
+      alert(`Cập nhật thất bại: ${error.message}`);
+    },
+  });
+
+  const onSubmit = (product: IProduct) => {
+    mutation.mutate({ ...product, galleries: gallery });
+  };
+
+  const handleChange: UploadProps['onChange'] = ({ fileList: newFileList }) => {
+    const newGallery = newFileList
+      .map(item => item.response?.url ?? item.url)
+      .filter((url): url is string => !!url);
+    setGallery(newGallery);
+  };
+
+  const fileList: UploadFile[] = data?.galleries?.map((item, index) => ({
+    uid: index.toString(),
+    name: item,
+    status: 'done',
+    url: item,
+    thumbUrl: item,
+  })) || [];
+
+  if (isLoading) {
+    return <div>Đang tải...</div>;
+  }
+
+  return (
+    <div className="max-w-xl mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Sửa sản phẩm</h1>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col gap-4 [&_input]:border [&_input]:px-3 [&_input]:py-2 [&_input]:rounded"
+      >
+        <input
+          type="text"
+          {...register('name', { required: true })}
+          placeholder="Tên sản phẩm"
+          defaultValue={data?.name}
+        />
+        <input
+          type="text"
+          {...register('images', { required: true })}
+          placeholder="Ảnh sản phẩm"
+          defaultValue={data?.images}
+        />
+        <input
+          type="number"
+          {...register('price', { required: true, valueAsNumber: true })}
+          placeholder="Giá sản phẩm"
+          defaultValue={data?.price}
+        />
+        <Upload
+          action={UPLOAD_URL}
+          listType="picture"
+          defaultFileList={fileList}
+          data={{ upload_preset: 'reacttest' }}
+          onChange={handleChange}
+          multiple
+        >
+          <Button type="primary" icon={<UploadOutlined />}>
+            Upload
+          </Button>
+        </Upload>
+        <Button type="primary" htmlType="submit">
+          Sửa
+        </Button>
+      </form>
+    </div>
+  );
+};
+
+export default ProductEdit;

@@ -5,16 +5,15 @@ import AdminLayout from './layout/admin'
 import Home from './components/client/home'
 import ProductList from './components/admin/productlist'
 import ProductAdd from './components/admin/productadd'
-import ProductEdit from './components/admin/productedit'
 import Login from './components/client/user/login'
 import SearchProduct from './components/client/products/search'
 import ListCart from './components/client/carts/listcart'
 import CheckOut from './components/client/carts/checkout'
 import Register from './components/client/user/Register'
+import ProductEdit from './components/admin/productedit'
 
-type Props = {}
 
-const App = (props: Props) => {
+const App = () => {
   const routes = useRoutes([
       {path:"/",element:<ClientLayout/>,children:[
         {path:"",element:<Home/>},
