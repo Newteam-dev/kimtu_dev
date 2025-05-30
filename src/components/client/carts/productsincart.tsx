@@ -20,7 +20,7 @@ const ProductsInCart = () => {
   );
 
   // VietQR API configuration
-  const vietQRUrl = `https://img.vietqr.io/image/MB-696625112005-compact2.png?amount=${total}&addInfo=${encodeURIComponent('Thanh toán giỏ hàng')}`;
+  const vietQRUrl = `https://img.vietqr.io/image/MB-1982568363636-compact2.png?amount=${total}&addInfo=${encodeURIComponent('Thanh toán giỏ hàng')}`;
 
   const handlePayment = () => {
     setIsPaymentModalOpen(true);
