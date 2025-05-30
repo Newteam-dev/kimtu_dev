@@ -1,12 +1,11 @@
 import { useQueryClient, useMutation } from '@tanstack/react-query'
-import axios from 'axios'
-import React, { useState } from 'react'
+
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { IProduct } from '../../interface/product'
 import { useNavigate } from 'react-router-dom'
 import { api } from '../../config/axios'
-import { useData } from '../../hooks/usedata'
-import { ICart } from '../../interface/cart'
+
 import { Button, Upload, UploadFile, UploadProps } from 'antd'
 import { UploadOutlined } from '@ant-design/icons'
 

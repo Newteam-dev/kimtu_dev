@@ -1,13 +1,11 @@
 import {
   useMutation,
-  useQueries,
   useQuery,
   useQueryClient,
 } from "@tanstack/react-query";
-import React from "react";
 import { IProduct } from "../../interface/product";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { api } from "../../config/axios";
 import { Button, message, Popconfirm, Table } from "antd";
 import {DeleteFilled, EditFilled, WarningFilled} from '@ant-design/icons'

@@ -1,11 +1,11 @@
-import { CloseOutlined } from '@ant-design/icons'
-import React, { useContext, useEffect } from 'react'
+
+import { useContext, useEffect } from 'react'
 import { cartContext } from '../../../context/Cart'
-import { CartActionType, IProductCart } from '../../../interface/cart'
+import { IProductCart } from '../../../interface/cart'
 import { Link } from 'react-router-dom'
 
 const CheckOut = () => {
-    const {cartstate,dispatch} = useContext(cartContext)
+    const {cartstate} = useContext(cartContext)
     useEffect(()=>{
         console.log(cartstate);        
     },[cartstate])

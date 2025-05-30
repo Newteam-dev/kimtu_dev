@@ -1,6 +1,6 @@
 import { DashboardFilled, FileTextFilled, HighlightFilled, ProductFilled } from '@ant-design/icons';
 import { Menu, MenuProps } from 'antd';
-import React from 'react'
+
 import { useNavigate } from 'react-router-dom';
 
 const AdminSidebar = () => {

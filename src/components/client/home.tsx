@@ -1,4 +1,3 @@
-import React from 'react';
 import { IProduct } from '../../interface/product';
 import ProductItem from './products/item';
 import { useData } from '../../hooks/usedata';

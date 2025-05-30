@@ -3,7 +3,6 @@ import { useRoutes } from 'react-router-dom'
 import ClientLayout from './layout/client'
 import AdminLayout from './layout/admin'
 import Home from './components/client/home'
-import Detail from './components/client/detail'
 import ProductList from './components/admin/productlist'
 import ProductAdd from './components/admin/productadd'
 import ProductEdit from './components/admin/productedit'
@@ -22,7 +21,6 @@ const App = (props: Props) => {
         {path:"search",element:<SearchProduct/>},
         {path:"cart",element:<ListCart/>},
         {path:"checkout",element:<CheckOut/>},
-        {path:"detail",element:<Detail/>},
         {path:"login",element:<Login/>},
         {path:"register",element:<Register/>}
       ]},

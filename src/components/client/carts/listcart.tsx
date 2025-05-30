@@ -1,5 +1,5 @@
-import { CloseOutlined } from '@ant-design/icons'
-import React, { useContext } from 'react'
+
+import { useContext } from 'react'
 import { cartContext } from '../../../context/Cart'
 import { CartActionType, IProductCart } from '../../../interface/cart'
 import { Link } from 'react-router-dom'
