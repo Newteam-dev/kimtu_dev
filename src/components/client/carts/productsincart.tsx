@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { cartContext } from '../../../context/Cart';
 import { CartActionType, IProductCart } from '../../../interface/cart';
 import { CloseOutlined, DeleteOutlined } from '@ant-design/icons';

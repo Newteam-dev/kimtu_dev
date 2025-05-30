@@ -1,11 +1,9 @@
-import React, { useContext, useState } from 'react'
+
 import { IProduct } from '../../../interface/product'
-import StarRating from './starrating'
+
 import { cartContext } from '../../../context/Cart'
-import { api } from '../../../config/axios'
-import { CartActionType } from '../../../interface/cart'
-import { message } from 'antd'
 import "../../../css/item.css"
+import { useContext, useState } from 'react'
 
 type Props = {
   product: IProduct

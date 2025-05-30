@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useRoutes } from 'react-router-dom'
 import ClientLayout from './layout/client'
 import AdminLayout from './layout/admin'

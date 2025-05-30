@@ -1,5 +1,4 @@
-import React, { createContext, ReactNode, useReducer, useState } from 'react'
-import { reducer } from '../reducers/count'
+import { createContext, ReactNode, useReducer } from 'react'
 import { cartReducer } from '../reducers/cartreducer'
 import { ICart } from '../interface/cart'
 import ProductsInCart from '../components/client/carts/productsincart'
