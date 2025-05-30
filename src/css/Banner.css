@@ -1,0 +1,27 @@
+/* Đảm bảo banner có kích thước chuẩn và phù hợp trên mọi màn hình */
+.banner-container {
+  width: 100%; /* Chiếm 100% chiều rộng màn hình */
+  height: 550px; /* Kích thước chiều cao cố định cho banner */
+  overflow: hidden; /* Tránh ảnh bị tràn ra ngoài */
+  border-radius: 20px; /* Bo góc mềm mại cho container */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Tạo bóng đổ nhẹ cho viền */
+  border: 2px solid #ddd; /* Viền mỏng xung quanh banner */
+}
+
+.banner-image img {
+  width: 100%; /* Chiếm toàn bộ chiều rộng của container */
+  height: 100%; /* Chiếm toàn bộ chiều cao của container */
+  object-fit: cover; /* Giữ tỷ lệ ảnh và cắt bớt phần thừa nếu cần */
+  border-radius: 20px; /* Bo góc mềm mại cho ảnh */
+}
+
+/* Responsive cho thiết bị di động */
+@media (max-width: 768px) {
+  .banner-container {
+    height: 250px; /* Giảm chiều cao cho thiết bị di động */
+  }
+
+  .banner-image img {
+    object-fit: contain; /* Hiển thị toàn bộ ảnh mà không bị cắt xén trên màn hình nhỏ */
+  }
+}

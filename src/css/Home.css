@@ -1,0 +1,91 @@
+/* Home.css */
+
+/* Container for the entire Home component */
+.home-container {
+  max-width: 1200px; /* Max width for larger screens */
+  margin: 0 auto; /* Center the container */
+  padding: 0 1rem; /* Add padding for smaller screens */
+}
+
+/* Banner and contact links styling (unchanged, included for completeness) */
+.banner-container,
+.contact-links {
+  margin-bottom: 2rem;
+}
+
+/* Course header styling */
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.course-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.course-title {
+  font-size: 1.25rem;
+  color: #4a5568; /* Gray color for subtitle */
+}
+
+.course-button {
+  background-color: #3b82f6; /* Blue button */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.course-button:hover {
+  background-color: #2563eb;
+}
+
+/* Grid layout for product items */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+  gap: 1rem; /* Space between cards */
+}
+
+/* For PC (768px and above): 4 columns */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on PC */
+  }
+}
+
+/* Loading spinner styling */
+.flex.items-center.justify-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ensure responsiveness for smaller screens */
+@media (max-width: 640px) {
+  .course-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .course-button {
+    margin-top: 1rem;
+  }
+}

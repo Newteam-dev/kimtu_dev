@@ -1,0 +1,102 @@
+{
+  "categorys": [
+    {
+      "id": 1,
+      "name": "Điện thoại"
+    },
+    {
+      "id": 2,
+      "name": "Laptop"
+    },
+    {
+      "id": 3,
+      "name": "Máy tính bảng"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "images": "https://thaythuan.vn/api/assets/combo/cm0m2ix9e000kyt3rec9bmop3",
+      "name": "LIVE S - Khởi động - Toán 2K7 - HTT",
+      "price": "1.000.000đ"
+    },
+    {
+      "id": 2,
+      "images": "https://thaythuan.vn/api/assets/combo/cm0m2ix9e000kyt3rec9bmop3",
+      "name": "LIVE S - Khởi động - Toán 2K7 - HTT",
+      "price": "1.000.000đ"
+    },
+    {
+      "id": 3,
+      "images": "https://thaythuan.vn/api/assets/combo/cm0m2ix9e000kyt3rec9bmop3",
+      "name": "LIVE S - Khởi động - Toán 2K7 - HTT",
+      "price": "1.000.000đ"
+    },
+    {
+      "id": 4,
+      "images": "https://thaythuan.vn/api/assets/combo/cm0m2ix9e000kyt3rec9bmop3",
+      "name": "LIVE S - Khởi động - Toán 2K7 - HTT",
+      "price": "1.000.000đ"
+    }
+  ],
+  "variants": [],
+  "carts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "Items": [
+        {
+          "productId": 1,
+          "quantity": 6
+        },
+        {
+          "productId": 3,
+          "quantity": 5
+        },
+        {
+          "productId": 2,
+          "quantity": 5
+        },
+        {
+          "productId": 4,
+          "quantity": 12
+        }
+      ]
+    }
+  ],
+  "orders": [],
+  "users": [
+    {
+      "email": "tbnew.net@gmail.com",
+      "password": "$2a$10$uUuVaLoeEgKahTryXefyDue.qiC1SnvjjxS11E73IjErfGAUH2HcS",
+      "id": 1,
+      "role": "admin"
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "img": "https://thaythuan.vn/api/assets/combo/cm0m2ix9e000kyt3rec9bmop3",
+      "title": "LIVE S - Khởi động - Toán 2K7 - HTT",
+      "price": "1.000.000đ"
+    },
+    {
+      "id": 2,
+      "img": "https://thaythuan.vn/api/assets/combo/cm0m2ix9e000kyt3rec9bmop3",
+      "title": "LIVE C – Chuyên đề – Toán 2K7 – HTT",
+      "price": "1.000.000đ"
+    },
+    {
+      "id": 3,
+      "img": "https://thaythuan.vn/api/assets/combo/cm0m2ix9e000kyt3rec9bmop3",
+      "title": "LIVE T – Luyện đề – Toán 2K7 – HTT",
+      "price": "1.000.000đ"
+    },
+    {
+      "id": 4,
+      "img": "https://thaythuan.vn/api/assets/combo/cm0m2ix9e000kyt3rec9bmop3",
+      "title": "LIVE G – Tổng ôn – Toán học 2K7 – HTT",
+      "price": "1.000.000đ"
+    }
+  ]
+}

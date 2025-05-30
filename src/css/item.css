@@ -1,0 +1,131 @@
+/* styles.css */
+
+.course-container {
+    padding: 1.5rem;
+  }
+  
+  .course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .course-heading {
+    color: #b45309; /* Tailwind yellow-700 */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .course-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .course-button {
+    background-color: #b45309;
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .course-button:hover {
+    background-color: #92400e;
+  }
+  
+  .course-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .course-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .hide-on-mobile {
+      display: none;
+    }
+    .course-button {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .course-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .course-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+    background-color: white;
+  }
+  
+  .course-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .course-img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .course-body {
+    padding: 1rem;
+  }
+  
+  .course-title-sm {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .course-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .course-price-new {
+    color: #dc2626; /* Tailwind red-600 */
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  
+  .course-price-old {
+    text-decoration: line-through;
+    color: #9ca3af; /* Tailwind gray-400 */
+    font-size: 0.875rem;
+  }
+  
+  .cart-btn {
+    background-color: #b45309;
+    color: white;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .cart-btn:hover {
+    background-color: #92400e;
+  }
+  
