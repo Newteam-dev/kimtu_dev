@@ -6,7 +6,6 @@ import Home from './components/client/home'
 import ProductList from './components/admin/productlist'
 import ProductAdd from './components/admin/productadd'
 import Login from './components/client/user/login'
-import SearchProduct from './components/client/products/search'
 import ListCart from './components/client/carts/listcart'
 import CheckOut from './components/client/carts/checkout'
 import Register from './components/client/user/Register'
@@ -17,7 +16,6 @@ const App = () => {
   const routes = useRoutes([
       {path:"/",element:<ClientLayout/>,children:[
         {path:"",element:<Home/>},
-        {path:"search",element:<SearchProduct/>},
         {path:"cart",element:<ListCart/>},
         {path:"checkout",element:<CheckOut/>},
         {path:"login",element:<Login/>},
