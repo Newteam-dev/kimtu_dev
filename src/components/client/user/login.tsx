@@ -1,6 +1,6 @@
 
 import { IUser } from '../../../interface/user'
-import { useQueryClient, useMutation } from '@tanstack/react-query'
+import {  useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { api } from '../../../config/axios'
@@ -8,7 +8,6 @@ import { message } from 'antd'
 
 const Login = () => {
     const {register,handleSubmit} = useForm<IUser>()
-    const queryclient = useQueryClient()
     const navigate = useNavigate()
     const mutation = useMutation({
         mutationFn: async(userdata:IUser)=>{

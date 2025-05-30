@@ -8,7 +8,7 @@ const Register = () => {
     const [messageApi, contextHolder] = message.useMessage();
     const navigate = useNavigate();
     const { mutate } = useMutation({
-        mutationFn: async (userData: any) => await register(userData),
+        mutationFn: async (userData: any) => await (userData),
     });
     const handleSubmit = async (values: any) => {
         mutate(values, {

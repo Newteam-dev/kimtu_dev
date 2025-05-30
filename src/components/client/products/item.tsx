@@ -1,16 +1,14 @@
 
 import { IProduct } from '../../../interface/product'
 
-import { cartContext } from '../../../context/Cart'
 import "../../../css/item.css"
-import { useContext, useState } from 'react'
+import {  useState } from 'react'
 
 type Props = {
   product: IProduct
 }
 
 const ProductItem = ({ product }: Props) => {
-  const { dispatch } = useContext(cartContext)
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false)
   const [isThankYouModalOpen, setIsThankYouModalOpen] = useState(false)
   
