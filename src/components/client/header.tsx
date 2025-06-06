@@ -22,10 +22,10 @@ export default function HeaderNav() {
         <NavItem href="/khoa-hoc" icon={<GraduationCap className="w-6 h-6" />} label="Đăng kí học" />
         <NavItem href="/sach" icon={<BookMarked className="w-6 h-6" />} label="Mua sách" />
         <NavItem href="/de-thi" icon={<School className="w-6 h-6" />} label="Đề thi" />
-        <NavItem href="/tailieu" icon={<Archive className="w-6 h-6" />} label="Tài liệu" />
+        {/* <NavItem href="/tailieu" icon={<Archive className="w-6 h-6" />} label="Tài liệu" /> */}
 
         <div className="ml-0 md:ml-auto flex items-center gap-4">
-          <button
+          {/* <button
             onClick={() => dispatch({ type: CartActionType.ChangeStatusCart, payload: true })}
             className="relative flex flex-col items-center text-base text-gray-700 hover:text-yellow-600 transition"
           >
@@ -36,12 +36,15 @@ export default function HeaderNav() {
                 {totalItems}
               </span>
             )}
-          </button>
+          </button> */}
 
-          <div className="flex flex-col items-center text-base text-gray-700 hover:text-yellow-600 cursor-pointer transition">
+          <a
+            href="/login"
+            className="flex flex-col items-center text-base text-gray-700 hover:text-yellow-600 cursor-pointer transition"
+          >
             <KeyRound className="w-6 h-6" />
             <p className="text-sm hidden sm:block">Đăng nhập</p>
-          </div>
+          </a>
         </div>
       </div>
     </nav>
